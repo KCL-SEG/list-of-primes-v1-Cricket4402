@@ -2,18 +2,22 @@
 """ENTER YOUR SOLUTION HERE!"""
 
 def primes(number_of_primes):
-    x = number_of_primes
+    
     list = []
-    no = 0
-    i = 1
-    while not(no == x):
-        factors = 0
+    factors = 0
+    i = 2
+    while len(list) < number_of_primes:
         
-        i = i + 1
-        for j in range(1,i):
-            if(i % j == 0):
-                factors = factors + 1
-            if(factors == 2):
-                list.append(i)
-                no = no + 1
+        if prime_finder(i):
+            list.append(i)  
+        i = i + 1          
+            
     return list
+
+def prime_finder(i):
+   
+    for j in range(2, i):
+        if(i % j == 0):
+            return False
+    
+    return True
